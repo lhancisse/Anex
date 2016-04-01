@@ -8,6 +8,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script>
+
    $(document).ready(function () {
 		var url = 'https://spreadsheets.google.com/feeds/list/1G75QrTqOzQEeqKOHGaV7D3sP2ijGZ2yisqx8BsM9d7c/od6/public/values?alt=json';
 		
@@ -47,6 +48,22 @@
   });
 });
       </script>
+
+<script>
+      //crÈation requÍte serveur
+      var xhttp = new XMLHttpRequest();
+      xhttp.open("GET", "https://spreadsheets.google.com/feeds/list/1G75QrTqOzQEeqKOHGaV7D3sP2ijGZ2yisqx8BsM9d7c/1/public/basic?alt=json-in-script&callback=JSON_CALLBACK"+str, true);
+      xhttp.send();
+
+      xhttp.onreadystatechange = function() {
+      if (xhttp.readyState == 4 && xhttp.status == 200) {
+      document.getElementById("").innerHTML = xhttp.responseText;
+      }
+    };
+      
+    }
+</script>
+
 <!-- fin javascript-->
 
     <title> ANEX - A GOOD BREWING COMPANY </title>
