@@ -49,21 +49,6 @@
 });
       </script>
 
-<script>
-      //crÈation requÍte serveur
-      var xhttp = new XMLHttpRequest();
-      xhttp.open("GET", "https://spreadsheets.google.com/feeds/list/1G75QrTqOzQEeqKOHGaV7D3sP2ijGZ2yisqx8BsM9d7c/1/public/basic?alt=json-in-script&callback=JSON_CALLBACK"+str, true);
-      xhttp.send();
-
-      xhttp.onreadystatechange = function() {
-      if (xhttp.readyState == 4 && xhttp.status == 200) {
-      document.getElementById("").innerHTML = xhttp.responseText;
-      }
-    };
-      
-    }
-</script>
-
 <!-- fin javascript-->
 
     <title> ANEX - A GOOD BREWING COMPANY </title>
@@ -124,12 +109,8 @@
 <!--Beginning of content-->
 
 <!--Contenu de la page-->
- <div class="spacer"</div>
- <div class="spacer"</div>
-  <div class="spacer"</div>
- <div class="spacer"</div>
- <div class="spacer"</div>
- <div class="spacer"</div>
+ <div class="spacer"></div>
+ 
 
 <div class="panel panel-default">
 <div class="panel-heading" class="text-center"><h3>Google Spreadsheet Data</h3></div>
