@@ -4,12 +4,56 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--début javascript-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script>
+   $(document).ready(function () {
+		var url = 'https://spreadsheets.google.com/feeds/list/1G75QrTqOzQEeqKOHGaV7D3sP2ijGZ2yisqx8BsM9d7c/od6/public/values?alt=json';
+		
+   $.getJSON(url).success(function(data) {
+  		// récupération des entrées
+  		var entries = data.feed.entry
+      // récupération des noms de colonne
+      var columns = []
+      $.each(entries[0], function(key, value){
+      	if (key.match("^gsx")){
+        	columns.push(key.split('$')[1])
+        }
+      });
+      console.log(columns);
+      // création du header
+      var tr = $('<tr/>').addClass( "header" );;
+      //création du header
+      for (var j = 0; j < columns.length; j++){
+      	console.log(columns[j])
+      	tr.append("<td>" + columns[j] + "</td>");
+      }
+      $('#mytable').append(tr);
+      // création des lignes
+
+      for (var i = 0; i < entries.length; i++) {
+      	     tr = $('<tr/>');
+            for (var j = 0; j < columns.length; j++){
+              console.log(entries[i]['gsx$' + columns[j]]['$t'])
+              tr.append("<td>" + entries[i]['gsx$' + columns[j]]['$t'] + "</td>");
+            }
+            $('#mytable').append(tr);
+       }
+  }).error(function(message) {
+      console.error('error' + message); 
+  }).complete(function() {
+      console.log('completed!'); 
+  });
+});
+      </script>
+<!-- fin javascript-->
 
     <title> ANEX - A GOOD BREWING COMPANY </title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
    
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -38,16 +82,16 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="recettes/index.html"><span class="glyphicon glyphicon-glass"> Recettes</span></a></li>
-        <li><a class="glyphicon glyphicon-camera" href="photos/index.html"> Photos</a></li>
-        <li><a class= "glyphicon glyphicon-info-sign" href="about/index.html"> Qui sommes-nous?</a></li>
+        <li><a href="recettes/index.html">Nos Recettes</a></li>
+        <li><a href="photos/index.html">Photos</a></li>
+        <li><a href="about/index.html">Qui sommes-nous?</a></li>
         <li class="dropdown">
-          <a href="#" class="glyphicon glyphicon-tasks dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Ressources<span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ressources<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="production/index.html">Feuille de production</a></li>
             <li><a href="temperature/index.html">Température</a></li>
-            <li><a href="#">Inventaire</a></li>
             <li><a href="#">Comptabilité</a></li>
+            <li><a href="#">Inventaire</a></li>
             <li role="separator" class="divider"></li>
             <li><a class="glyphicon glyphicon-lock btn btn-lg" role="button" data-toggle="modal" data-target="#login-modal">Login</a>
             </li>
@@ -149,40 +193,18 @@
   <!--End of Sign in Div -->
  
 <!--Beginning of content-->
-<div id="wrapper">
-    <img src="images/Logo.jpeg" alt="logo" width="500" class="img-circle" id="logo" class="img-responsive center-block">
-    <h1 class="text-center">UNE MICRO-BRASSERIE EN PLEIN <strong>DEVELOPPEMENT</strong></h1>
-</div>
 
- 
-
-<div class="spacer"></div>
-
-<div class="container feature700">
-  <div class="row">
-    <div class="col-md-12">
-      <h2 class="text-center"> Maltée, sucrée ou houblonnée?</h2>
-      <h3 class="text-center">Vous avez le choix entre nos 2 bières brassées maison!</h3>
+<!--Contenu de la page-->
+ <div class="spacer"</div>
+ <div class="spacer"</div>
+    
+    <div>
+      <table id='mytable' class="table table-responsive table-bordered table-striped">
+      <caption>Google Spreadsheet Data</caption>
+      </table>
     </div>
-  </div>
-</div>
-
-<div class="spacer"></div>
-
-<div class="container feature700 text-center">
-  <div class="row">
-    <div class="col-xs-6 col-md-6 col-lg-6">
-      <img src="images/noun_22769_cc.png" alt="Silver" width="100" style="border: 2px solid black"class="img-circle">
-      <h4 class="white">Silver Star</h4>
-    </div>
-
-    <div class="col-xs-6 col-md-6 col-lg-6">
-      <img src="images/noun_9256_cc.png" alt="Karmeliet" width="100" style="border: 2px solid black" class="img-circle">
-      <h4 class="text-center" class="white">Clone Karmeliet</h4>
-    </div>
-  </div>
-</div>
-
+  
+  
 <div class="spacer"></div>
 
 <div id="footer"> 
@@ -227,8 +249,9 @@
 
 
     <!-- Including Bootstrap JS (with its jQuery dependency) so that dynamic components work -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
   </body>
 </html>
+Status API Training Shop Blog About
+© 2016 GitHub, Inc. Terms Privacy Security Contact Help
