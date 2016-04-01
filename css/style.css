@@ -1,0 +1,161 @@
+body{
+	background-color: white;
+	
+}
+
+#footer{
+	background-color: black;
+	color: #aaaaaa;
+	padding-top: 3em;
+	padding-bottom: 3em;
+}
+
+#footer a{
+	color: #aaaaaa;
+}
+
+#footer a:hover{
+	color: #dddddd;}
+
+.social a{
+	font-size:30px;
+}
+
+#pixel14{
+	font-size: 14px;
+}
+
+#wrapper{
+	height: 850px;
+	background-image: url("../images/banner_background.jpg");
+	background-size: cover;
+	text-align: center;
+	padding-top: 70px;
+	color: white;
+	text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
+#wrapper h1{
+	font-size: 55px;
+}
+
+.spacer{
+	height: 5em;
+}
+
+#wrapper2 {
+	height: 260px;
+	background-image: url("../images/2015-07-24 19.48.22.jpg");
+	background-size: cover;
+	text-align: center;
+	padding-top: 90px;
+	color: white;
+	text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
+#wrapper2 h1{
+	font-size: 55px;
+}
+
+#wrapper3{
+	height: 350px;
+	background-image: url("../images/bière_soleil.jpg");
+	background-size: cover;
+	text-align: center;
+	padding-top: 90px;
+	color: white;
+	text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
+#wrapper3 h1{
+	font-size: 60px;
+}
+
+#wrapper4{
+		height: 350px;
+	background-image: url("../images/fûts.jpg");
+	background-size: cover;
+	text-align: center;
+	padding-top: 90px;
+	color: white;
+	text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
+#wrapper4 h1{
+	font-size: 60px;
+}
+
+.feature700 h2,h3{
+	font-weight: 700;
+	letter-spacing: 1px;
+}
+
+.feature700 img{
+	margin-bottom: 2em;
+
+}
+.feature300 p{
+	font-weight: 300;
+	font-size: 16px;
+	letter-spacing: 1px;
+}
+
+body p{
+	font-size: 20px;
+}
+
+
+
+/* How to override the default Bootstrap navbar */
+
+
+.navbar-transparence{
+	background-color: rgba(0,0,0,0.7);
+}
+
+.navbar-transparence .navbar-brand,
+.navbar-transparence .navbar-nav > li > a {
+  color: #eeeeee;
+  font-size: 16px;
+}
+
+.navbar-transparence .navbar-brand:hover,
+.navbar-transparence .navbar-brand:active,
+.navbar-transparence .navbar-brand:focus,
+.navbar-transparence .navbar-nav > li > a:hover,
+.navbar-transparence .navbar-nav > li > a:active,
+.navbar-transparence .navbar-nav > li > a:focus,
+.navbar-transparence .navbar-nav > .open > a,
+.navbar-transparence .navbar-nav > .open > a:hover,
+.navbar-transparence .navbar-nav > .open > a:focus {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+#logo{
+	opacity: 0.4;
+}
+
+.frame{
+	height: auto;
+	width: auto;
+}
+
+.table{
+	height: 1000%;
+	width: 1000%;
+}
+
+.equipment-modal-lg p{
+	font-size: 16px;
+	color: black;
+}
+
+.equipment-modal-lg img{
+	width: 300;
+	height: 150;
+}
+
+.equipment-modal-lg h1{
+	color: black;
+}
